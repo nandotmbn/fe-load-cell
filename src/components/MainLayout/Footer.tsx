@@ -8,7 +8,7 @@ function FooterMainLayout() {
 			<div className="flex-1 flex items-center">
 				<Image
 					className="contain relative w-full"
-					src="/images/pens-long-logo.png"
+					src="/LOGO_ITS.png"
 					alt="Jumbotron PENS"
 					width={400}
 					height={400}
@@ -18,8 +18,8 @@ function FooterMainLayout() {
 			<div className="flex-2 flex justify-center flex-col">
         <p>Jl. Raya ITS, Keputih, Kec. Sukolilo, Kota SBY, Jawa Timur 60111</p>
         <p>Indonesia</p>
-        <p>(031) 5947280</p>
-        <p>humas@pens.ac.id</p>
+        <p>(031) 5947274</p>
+        <p>humas@its.ac.id</p>
 
         <div className="mt-4 flex flex-row gap-4 text-cyan-500">
           <Link href="/">
@@ -40,9 +40,6 @@ function FooterMainLayout() {
           </Link>
           <Link href="/">
             <p>Terms and Condition</p>
-          </Link>
-          <Link href="/admin">
-            <p>Administrator</p>
           </Link>
         </div>
       </div>

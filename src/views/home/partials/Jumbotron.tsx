@@ -1,17 +1,25 @@
+import {
+	FieldTimeOutlined,
+	PercentageOutlined,
+	RiseOutlined,
+	SolutionOutlined,
+	TableOutlined,
+	UpCircleFilled,
+} from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 function HomeJumbotron() {
 	return (
-		<div className="flex flex-row self-center bg-gray-100 border-b-8 border-yellow-400">
-			<div className="w-full flex-3">
+		<div className="flex flex-row self-center bg-gray-200 border-b-8 border-yellow-400">
+			<div className="w-full flex-2">
 				<Image
 					className="contain w-full relative"
 					src="/images/home/scale1.png"
 					alt="Jumbotron PENS"
-					width={400}
-					height={1}
+					width={600}
+					height={200}
 				/>
 			</div>
 			<div
@@ -33,12 +41,28 @@ function HomeJumbotron() {
 						<strong>Kimi noTe</strong>
 					</p>
 				</span>
-				<h2 className="text-2xl font-semibold text-blue-700 mt-4">
+				<h2 className="text-xl font-semibold text-blue-700 mt-4">
 					Alat penimbang ikan pada kapal penangkap ikan terintegrasi dengan
 					sistem perekaman dan manajemen.
 				</h2>
-				<Link href="/about">
-					<button className="mt-8 bg-blue-600 text-white px-4 py-2 rounded-2xl hover:bg-blue-800 duration-700">
+				<div className="flex flex-row text-blue-500 font-bold gap-2 py-2">
+					<div className="text-center bg-white bg-opacity-70 rounded-full w-28 h-28 flex flex-col text-xs items-center justify-center">
+						<FieldTimeOutlined className="text-2xl" />
+						<p>Respon Cepat</p>
+					</div>
+					<div className="text-center bg-white bg-opacity-70 rounded-full w-28 h-28 flex flex-col text-xs items-center justify-center">
+						<SolutionOutlined className="text-2xl" />
+						<p>
+							Terdokumentasi
+						</p>
+					</div>
+					<div className="text-center bg-white bg-opacity-70 rounded-full w-28 h-28 flex flex-col text-xs items-center justify-center">
+						<PercentageOutlined className="text-2xl" />
+						<p>Presisi</p>
+					</div>
+				</div>
+				<Link href="/auth/signup">
+					<button className="mt-10 bg-blue-600 text-white px-4 py-2 rounded-2xl hover:bg-blue-800 duration-700">
 						Mulai Sekarang
 					</button>
 				</Link>

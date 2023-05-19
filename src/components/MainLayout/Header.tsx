@@ -67,7 +67,7 @@ function HeaderMainLayout() {
 			</div>
 
 			<button
-				className="flex flex-row items-center md:hidden bg-blue-900 text-sm text-white px-2 py-4 self-start"
+				className="flex flex-row items-center md:hidden bg-blue-900 text-sm text-white px-2 py-4"
 				onClick={handleMobileMenuOpened}
 			>
 				{!isMobileMenuOpened ? (
@@ -84,62 +84,31 @@ function HeaderMainLayout() {
 			</button>
 
 			{!isMobileMenuOpened ? null : (
-				<ul className="absolute top-20 w-full md:hidden grid grid-cols-2 gap-4 px-4 bg-white">
-					<li className="">
-						<Link href="/about">
-							<button className="text-left text-xs">
-								Tentang Pascasarjana
-							</button>
+				<ul className="absolute top-16 md:top-20 w-full md:hidden grid grid-cols-2 gap-4 px-4 py-8 bg-white">
+					<li className="border-b-2 border-yellow-500">
+						<Link href="/documentation">
+							<button className="text-left text-xs">Dokumentasi</button>
 						</Link>
 					</li>
-					<li className="">
-						<Dropdown menu={{ items }}>
-							<div>
-								<button className="text-left text-xs mr-2">Program</button>
-								<DownOutlined className="text-xs" />
-							</div>
-						</Dropdown>
-					</li>
-					<li className="">
-						<Link href="/lecturer-and-staff">
-							<button className="text-left text-xs">Dosen dan Staf</button>
+					<li className="border-b-2 border-yellow-500">
+						<Link href="/developer">
+							<button className="text-left text-xs">Tentang Pengembang</button>
 						</Link>
 					</li>
-					<li className="">
-						<Link href="/research-and-innovations">
-							<button className="text-left text-xs">Riset dan Inovasi</button>
+					<li className="border-b-2 border-yellow-500">
+						<Link href="/auth/signin">
+							<button className="text-left text-xs">Login</button>
 						</Link>
 					</li>
-					<li className="">
-						<Link href="/information">
-							<button className="text-left text-xs">Informasi</button>
+					<li className="border-b-2 border-yellow-500">
+						<Link href="/auth/signup">
+							<button className="text-left text-xs">Register</button>
 						</Link>
-					</li>
-					<li className="flex flex-row gap-4">
-						<button className="rounded-full text-white">
-							<Image
-								className="cursor-pointer"
-								src="/images/id.png"
-								alt="Logo Koridorlab"
-								width={40}
-								height={40}
-							/>
-						</button>
-
-						<button className="rounded-full text-white">
-							<Image
-								className="cursor-pointer"
-								src="/images/en.png"
-								alt="Logo Koridorlab"
-								width={40}
-								height={40}
-							/>
-						</button>
 					</li>
 				</ul>
 			)}
 
-			<div className="flex flex-row gap-16">
+			<div className="flex flex-row gap-16 hidden md:flex">
 				<ul className="hidden flex flex-row gap-2 text-white md:gap-4 text-xs text-gray-900 items-end py-4 md:flex">
 					<li className="border-b-2 border-yellow-500">
 						<Link href="/documentation">

@@ -10,7 +10,7 @@ function HeaderAdministratorLayout() {
 			>
 				<Image
 					className="cursor-pointer inline flex-2"
-					src="/images/pens-long-logo.png"
+					src="/images/long-logo-invert.png"
 					alt="Logo PENS"
 					width={200}
 					height={1280}

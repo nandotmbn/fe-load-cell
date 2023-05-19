@@ -26,7 +26,7 @@ function AdministratorLayout({ children }: IMainLayout) {
 	if (!domLoaded) return <div></div>;
 
 	return (
-		<div className="h-screen w-screen bg-gray-100 flex-col flex">
+		<div className="h-screen w-screen bg-blue-100 flex-col flex">
 			<HeaderAdministratorLayout />
 			<div className="flex flex-row flex-12 px-2 py-2 items-center justify-between gap-2">
 				<NavigationBarAdministratorLayout />

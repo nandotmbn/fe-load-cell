@@ -46,7 +46,7 @@ function LoginViews() {
 	};
 
 	useEffect(() => {
-		if (cookiesHandler.getCookie("access_token")) router.replace("/admin");
+		if (cookiesHandler.getCookie("access_token")) router.replace("/dashboard");
 	}, [refresher, refresherOrb]);
 	return (
 		<div className="flex flex-col items-center justify-center w-full py-4">

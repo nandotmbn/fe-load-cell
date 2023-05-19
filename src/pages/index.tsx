@@ -6,7 +6,7 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>Kimi noTe</title>
+				<title>Kami noTe</title>
 				<meta
 					name="description"
 					content="Fish weighing equipment on fishing vessels is integrated with a recording and management system."

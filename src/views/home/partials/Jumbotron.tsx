@@ -35,7 +35,7 @@ function HomeJumbotron() {
 				<span className="flex flex-row gap-2 text-lg">
 					<p>di</p>
 					<p>
-						<strong>Kimi noTe</strong>
+						<strong>Kami noTe</strong>
 					</p>
 				</span>
 				<h2 className="text-xl font-semibold text-blue-700 mt-4">

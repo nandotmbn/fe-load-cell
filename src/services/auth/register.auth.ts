@@ -4,11 +4,8 @@ import _ from "lodash"
 
 interface IRegister {
 	data: {
-		firstName: string;
-		lastName: string;
+		fullName: string;
 		username: string;
-		email: string;
-		rolesId: string;
 		password: string;
 	};
 	isNotify: boolean;

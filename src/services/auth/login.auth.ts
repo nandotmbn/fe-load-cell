@@ -2,7 +2,7 @@ import { serviceInstance } from "..";
 
 interface ILogin {
 	data: {
-		credential: string;
+		username: string;
 		password: string;
 	};
 	isNotify: boolean

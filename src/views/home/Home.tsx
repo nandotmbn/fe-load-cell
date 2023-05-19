@@ -9,8 +9,8 @@ function HomeViews() {
 	const [searchText, setSearchText] = useState("");
 	return (
 		<div className={`w-full flex flex-col`}>
-			{/* <HomeJumbotron />
-			<Announcements />
+			<HomeJumbotron />
+			{/* <Announcements />
 			<div className="relative">
 				<div className="absolute right-0 -top-2">
 					<Image

@@ -1,10 +1,7 @@
 import {
 	FieldTimeOutlined,
 	PercentageOutlined,
-	RiseOutlined,
 	SolutionOutlined,
-	TableOutlined,
-	UpCircleFilled,
 } from "@ant-design/icons";
 import Image from "next/image";
 import Link from "next/link";

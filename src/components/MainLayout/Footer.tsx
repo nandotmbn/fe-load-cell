@@ -16,7 +16,7 @@ function FooterMainLayout() {
 				/>
 			</div>
 			<div className="flex-2 flex justify-center flex-col">
-        <p>Jl. Raya ITS, Keputih, Kec. Sukolilo, Kota SBY, Jawa Timur 60111</p>
+        <p>Kampus ITS, Sukolilo, Surabaya, Jawa Timur 60111</p>
         <p>Indonesia</p>
         <p>(031) 5947274</p>
         <p>humas@its.ac.id</p>

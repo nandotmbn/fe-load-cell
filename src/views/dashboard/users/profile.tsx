@@ -84,7 +84,7 @@ function UserProfileViews() {
 					},
 				]}
 			/>
-			<div className="flex flex-col shadow-xl rounded-xl w-1/2 m-auto p-4">
+			<div className="flex flex-col shadow-xl rounded-xl w-full md:w-1/2 m-auto p-4">
 				<div className="flex flex-row items-center justify-between gap-4 mb-8">
 					<h3 className="text-2xl font-bold">Profil Anda</h3>
 					{isEdit ? (
@@ -137,7 +137,7 @@ function UserProfileViews() {
 					)}
 				</div>
 			</div>
-			<div className="flex flex-col shadow-xl rounded-xl w-1/2 m-auto p-4">
+			<div className="flex flex-col shadow-xl rounded-xl w-full md:w-1/2 m-auto p-4">
 				<div className="flex flex-row items-center justify-between gap-4">
 					<h3 className="text-2xl font-bold">Ubah Sandi Akun</h3>
 					{isRePassword ? (

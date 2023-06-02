@@ -31,19 +31,19 @@ function HeaderAdministratorLayout() {
 					unoptimized={true}
 				/>
 			</Link>
-			<Input.Search
-				size="large"
-				placeholder="Cari di Administrator"
-				onSearch={(text: string) => {
-					console.log(text);
-				}}
-				className="flex-12 ml-8"
+			<div
+				// size="large"
+				// placeholder="Cari di Administrator"
+				// onSearch={(text: string) => {
+				// 	console.log(text);
+				// }}
+				className="flex-10 ml-8"
 			/>
 			<div className="flex-3 flex flex-col items-end h-16 justify-end">
 				<div className="h-16 w-full flex flex-row justify-end items-center gap-2">
-					<UserOutlined className="text-4xl" />
+					<UserOutlined className="text-base md:text-4xl" />
 					<div className="flex flex-col">
-						<p className="text-sm">{data.fullName}</p>
+						<p className="text-sm hidden lg:flex">{data.fullName}</p>
 						<p className="text-gray-500 text-xs">{data.username}</p>
 					</div>
 				</div>

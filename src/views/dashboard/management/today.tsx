@@ -11,30 +11,12 @@ function DashboardTodayViews() {
 	const [totalWeight, setTotalWeight] = useState(0);
 
 	const socketIoInit = async () => {
-		const socket = socketIOClient("ws://localhost:8081");
+		const socket = socketIOClient("ws://10.252.128.176:8081");
 		const res = await Users.getUserProfiles({ isNotify: false }).then((res) => {
 			return res.data;
 		});
 		socket.on(res._id, async (data: any) => {
-			const _dataSource = dataSource;
-
-			const incomingDataSource = {
-				...data,
-				time: data.createdAt,
-				weight: data.weight / 1000
-			}
-
-			const newDataSource = [
-				..._dataSource,
-				incomingDataSource
-			]
-
-			let totalWeight = 0;
-			newDataSource.map(datum => {
-				totalWeight += datum.weight;
-			})
-			setTotalWeight(totalWeight);
-			setDataSource(newDataSource.reverse())
+			getAllDataSource(false);
 		});
 	};
 
@@ -155,7 +137,7 @@ function DashboardTodayViews() {
 				</div>
 				<div className="relative h-full flex-12">
 					<div className="overflow-y-scroll absolute inset-0 scrollbar scrollbar-w-1 scrollbar-thumb-gray-900 scrollbar-track-blue-100 pb-16 pr-4">
-						<div className="mt-4">
+						<div className="mt-4 pb-16">
 							<Table
 								pagination={{ pageSize: 5 }}
 								dataSource={dataSource}

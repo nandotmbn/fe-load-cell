@@ -6,6 +6,7 @@ import SidebarAdministratorLayout from "@/components/AdministratorLayout/Sidebar
 import cookiesHandler from "@/utils/storage/cookies";
 import { useRouter } from "next/router";
 import { message } from "antd";
+import NavigationBarMobileAdministratorLayout from "@/components/AdministratorLayout/NavigationBarMobile";
 
 interface IMainLayout {
 	children: JSX.Element;
@@ -19,7 +20,7 @@ function AdministratorLayout({ children }: IMainLayout) {
 		setDomLoaded(true);
 		if (!cookiesHandler.getCookie("access_token")) {
 			router.replace("/");
-			message.info({content: "Anda harus login terlebih dahulu"})
+			message.info({ content: "Anda harus login terlebih dahulu" });
 		}
 	}, []);
 
@@ -28,12 +29,13 @@ function AdministratorLayout({ children }: IMainLayout) {
 	return (
 		<div className="h-screen w-screen bg-blue-100 flex-col flex">
 			<HeaderAdministratorLayout />
+			<NavigationBarMobileAdministratorLayout />
 			<div className="flex flex-row flex-12 px-2 py-2 items-center justify-between gap-2">
 				<NavigationBarAdministratorLayout />
-				<div className="flex-20 bg-white rounded-2xl h-full p-4">
+				<div className="flex-16 bg-white rounded-2xl h-full p-4">
 					{children}
 				</div>
-				<SidebarAdministratorLayout />
+				{/* <SidebarAdministratorLayout /> */}
 			</div>
 		</div>
 	);

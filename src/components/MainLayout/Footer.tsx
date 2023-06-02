@@ -4,7 +4,7 @@ import React from "react";
 
 function FooterMainLayout() {
 	return (
-		<div className="bg-gray-50 border-r-8 border-r-blue-800 border-t-8 border-t-yellow-400 w-full flex flex-col md:flex-row md:px-24 md:py-12 gap-8">
+		<div className="bg-gray-50 p-4 border-r-8 border-r-blue-800 border-t-8 border-t-yellow-400 w-full flex flex-col md:flex-row md:px-24 md:py-12 gap-8">
 			<div className="flex-1 flex items-center p-4 md:p-0">
 				<Image
 					className="contain relative w-full"

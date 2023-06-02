@@ -1,0 +1,412 @@
+{
+	"info": {
+		"_postman_id": "a26f06df-274d-4189-b841-a105a0ef9648",
+		"name": "Load Cell API Dev Docs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12579961"
+	},
+	"item": [
+		{
+			"name": "Auths",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"YOUR_FULLNAME\",\r\n    \"username\": \"YOUR_USERNAME\",\r\n    \"password\": \"YOUR_PASSWORD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_ENDPOINT}}/api/v1/auth/register",
+							"host": [
+								"{{URL_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"YOUR_USERNAME\",\r\n    \"password\": \"YOUR_PASSWORD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_ENDPOINT}}/api/v1/auth/login",
+							"host": [
+								"{{URL_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Update Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4MjllOWEwZmQ3YjdjNmI4ZmRiMDQiLCJpYXQiOjE2ODU2MTI2OTF9.Xg6vLk3CcR3a3M4c2BmbBqqrRHEiiXvvo5PUVNk-OMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"YOUR_USERNAME\",\r\n    \"fullName\": \"YOUR_FULLNAME\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_ENDPOINT}}/api/v1/users",
+							"host": [
+								"{{URL_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Users Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDY5YTU1ZTZkODM3YmMyYzVmZDYyMWQiLCJpYXQiOjE2ODQ2NDcyNzV9.dw-f4yyzyvbzsi-bpWJbe7blMznH1g01Rg6lqtMuhVg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"YOUR_OLD_PASSWORD\",\r\n    \"newPassword\": \"YOUR_NEW_PASSWORD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_ENDPOINT}}/api/v1/users/password",
+							"host": [
+								"{{URL_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "API Key Update Hasher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4MjllOWEwZmQ3YjdjNmI4ZmRiMDQiLCJpYXQiOjE2ODU1OTgzMTN9.iAdImD6dhYkZq4BPep-0QA5iSUgzq4OBqyT3Wkih1WM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{URL_ENDPOINT}}/api/v1/users/apiKey",
+							"host": [
+								"{{URL_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"apiKey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Profiles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4MjllOWEwZmQ3YjdjNmI4ZmRiMDQiLCJpYXQiOjE2ODU1OTgzMTN9.iAdImD6dhYkZq4BPep-0QA5iSUgzq4OBqyT3Wkih1WM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_ENDPOINT}}/api/v1/users",
+							"host": [
+								"{{URL_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Records",
+			"item": [
+				{
+					"name": "Post Record By API Key",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"weight\": WEIGHTS\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_ENDPOINT}}/api/v1/record/apiKey/{{apiKey}}",
+							"host": [
+								"{{URL_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"record",
+								"apiKey",
+								":apiKey"
+							],
+							"variable": [
+								{
+									"key": "apiKey",
+									"value": "pGb9VnL9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Record",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4MjllOWEwZmQ3YjdjNmI4ZmRiMDQiLCJpYXQiOjE2ODU2MTI2OTF9.Xg6vLk3CcR3a3M4c2BmbBqqrRHEiiXvvo5PUVNk-OMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"weight\": WEIGHTS\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_ENDPOINT}}/api/v1/record",
+							"host": [
+								"{{URL_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"record"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Record",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4MjllOWEwZmQ3YjdjNmI4ZmRiMDQiLCJpYXQiOjE2ODU2MTI2OTF9.Xg6vLk3CcR3a3M4c2BmbBqqrRHEiiXvvo5PUVNk-OMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL_ENDPOINT}}/api/v1/record/{{recordId}}",
+							"host": [
+								"{{URL_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"record",
+								"6479e62e5fba1cfab1fcb466"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Record By Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4MjllOWEwZmQ3YjdjNmI4ZmRiMDQiLCJpYXQiOjE2ODU2MTI2OTF9.Xg6vLk3CcR3a3M4c2BmbBqqrRHEiiXvvo5PUVNk-OMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_ENDPOINT}}/api/v1/record",
+							"host": [
+								"{{URL_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"record"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Today Record By Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDc4MjllOWEwZmQ3YjdjNmI4ZmRiMDQiLCJpYXQiOjE2ODU2MTI2OTF9.Xg6vLk3CcR3a3M4c2BmbBqqrRHEiiXvvo5PUVNk-OMM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL_ENDPOINT}}/api/v1/record/today",
+							"host": [
+								"{{URL_ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"record",
+								"today"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL_ENDPOINT",
+			"value": "http://localhost:8081",
+			"type": "string"
+		}
+	]
+}

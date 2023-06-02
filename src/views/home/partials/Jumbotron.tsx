@@ -9,7 +9,7 @@ import React from "react";
 
 function HomeJumbotron() {
 	return (
-		<div className="flex flex-col md:flex-row self-center bg-gray-200 border-b-8 border-yellow-400">
+		<div className="flex flex-col xl:py-4 px-0 md:px-8 lg:px-0 lg:flex-row self-center bg-gray-200 border-b-8 border-yellow-400">
 			<div className="w-full flex-2">
 				<Image
 					className="contain w-full relative"
@@ -28,17 +28,17 @@ function HomeJumbotron() {
 					backgroundPosition: "center",
 				}}
 			>
-				<div className="relative hidden md:flex">
+				<div className="relative hidden px-8 lg:px-0 lg:flex">
 					<div className="absolute right-2 w-44 h-12 bg-transparent border-t-8 border-r-8 border-yellow-400"></div>
 				</div>
-				<h2 className="text-2xl lg:text-6xl font-semibold text-center md:text-left">Selamat Datang</h2>
-				<span className="flex flex-row gap-2 text-lg justify-center md:justify-start">
-					<p className="text-center md:text-left">di</p>
+				<h2 className="text-2xl lg:text-6xl font-semibold text-center px-8 lg:px-0 lg:text-left">Selamat Datang</h2>
+				<span className="flex flex-row gap-2 text-lg justify-center px-8 lg:px-0 lg:justify-start">
+					<p className="text-center lg:px-0 lg:text-left">di</p>
 					<p>
 						<strong className="">Kami noTe</strong>
 					</p>
 				</span>
-				<h2 className="text-base md:text-2xl text-center md:text-left font-semibold text-blue-700 mt-4">
+				<h2 className="text-base px-8 lg:px-0 lg:text-2xl text-center px-8 lg:px-0 lg:text-left font-semibold text-blue-700 mt-4">
 					Alat penimbang ikan pada kapal penangkap ikan terintegrasi dengan
 					sistem perekaman dan manajemen.
 				</h2>

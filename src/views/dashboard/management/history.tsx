@@ -3,7 +3,7 @@ import { DeleteFilled, EditFilled } from "@ant-design/icons";
 import { Breadcrumb, DatePicker, Popconfirm, Table } from "antd";
 import React, { useEffect, useState } from "react";
 import moment from "moment";
-import 'moment/locale/id'
+import "moment/locale/id";
 import { Records } from "@/services";
 
 function DashboardHistoryViews() {
@@ -12,12 +12,11 @@ function DashboardHistoryViews() {
 	const [selectedDate, setSelectedDate] = useState<string>("");
 
 	const handleDelete = (recordId: string) => {
-		Records.deleteRecords({isNotify: true, recordId})
-			.then(res => {
-				if(!res) return;
-				getAllDataSource(false);
-			})
-	}
+		Records.deleteRecords({ isNotify: true, recordId }).then((res) => {
+			if (!res) return;
+			getAllDataSource(false);
+		});
+	};
 
 	const getAllDataSource = async (isAlert: boolean) => {
 		Records.getAllRecords({
@@ -31,16 +30,18 @@ function DashboardHistoryViews() {
 			}
 			let totalWeight = 0;
 			setDataSource(
-				res.data.map((datum: any, i: number) => {
-					totalWeight += datum.weight / 1000;
-					return {
-						key: i,
-						_id: datum._id,
-						time: datum.createdAt,
-						date: datum.createdAt,
-						weight: datum.weight / 1000,
-					};
-				}).reverse()
+				res.data
+					.map((datum: any, i: number) => {
+						totalWeight += datum.weight / 1000;
+						return {
+							key: i,
+							_id: datum._id,
+							time: datum.createdAt,
+							date: datum.createdAt,
+							weight: datum.weight / 1000,
+						};
+					})
+					.reverse()
 			);
 			setTotalWeight(totalWeight);
 		});
@@ -56,7 +57,7 @@ function DashboardHistoryViews() {
 			dataIndex: "date",
 			key: "date",
 			render: (date: string) => {
-				return <p>{moment(date).locale('id').format("dddd, MMMM Do YYYY")}</p>;
+				return <p>{moment(date).locale("id").format("dddd, MMMM Do YYYY")}</p>;
 			},
 		},
 		{
@@ -64,7 +65,7 @@ function DashboardHistoryViews() {
 			dataIndex: "time",
 			key: "time",
 			render: (date: string) => {
-				return <p>{moment(date).locale('id').format("h:mm:ss")}</p>;
+				return <p>{moment(date).locale("id").format("h:mm:ss")}</p>;
 			},
 		},
 		{
@@ -81,7 +82,9 @@ function DashboardHistoryViews() {
 						<Popconfirm
 							title="Hapus penimbangan ini"
 							description="Apakah anda yakin untuk menghapus penimbangan ini"
-							onConfirm={() => {handleDelete(e._id)}}
+							onConfirm={() => {
+								handleDelete(e._id);
+							}}
 							okText={
 								<p className="text-blue-500 hover:text-white border-blue-100">
 									Ya
@@ -116,26 +119,37 @@ function DashboardHistoryViews() {
 					<div className="flex flex-2 flex-row gap-8">
 						<div className="">
 							<p>Total Perhitungan</p>
-							<p className="text-4xl font-bold">
+							<p className="text-xl md:text-4xl font-bold">
 								{dataSource.length.toString()}
 							</p>
 						</div>
 						<div className="">
 							<p>Total Berat</p>
-							<p className="text-4xl font-bold">{totalWeight.toFixed(2).toString()} Kg</p>
+							<p className="text-xl md:text-4xl font-bold">
+								{totalWeight.toFixed(2).toString()} Kg
+							</p>
 						</div>
 					</div>
-					<div className="flex flex-1 justify-center items-end flex-col gap-8">
+					<div className="hidden md:flex flex-1 justify-center items-end flex-col gap-8">
 						<DatePicker
 							className="w-full"
 							placeholder="Pilih tanggal perhitungan"
-							onChange={(date) => setSelectedDate(date?.toISOString()?.toString() as string)}
+							onChange={(date) => {
+								setSelectedDate(date?.toISOString()?.toString() as string || "");
+							}}
 						/>
 					</div>
 				</div>
+				<DatePicker
+					className="w-full mt-4 mb-2 md:hidden"
+					placeholder="Pilih tanggal perhitungan"
+					onChange={(date) =>
+						setSelectedDate(date?.toISOString()?.toString() as string)
+					}
+				/>
 				<div className="relative h-full flex-12">
 					<div className="overflow-y-scroll absolute inset-0 scrollbar scrollbar-w-1 scrollbar-thumb-gray-900 scrollbar-track-blue-100 pb-16 pr-4">
-						<div className="mt-4">
+						<div className="mt-4 pb-16">
 							<Table
 								pagination={{ pageSize: 5 }}
 								dataSource={dataSource}

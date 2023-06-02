@@ -40,10 +40,10 @@ function NavigationBarAdministratorLayout() {
 	}, [router]);
 
 	return (
-		<div className="flex-4 h-full">
+		<div className="hidden lg:flex flex-4 h-full">
 			<div className="relative h-full flex-12">
 				<div className="overflow-y-scroll absolute inset-0 scrollbar scrollbar-rounded-xl scrollbar-w-1 scrollbar-thumb-gray-400 scrollbar-track-blue-100 pt-4 pb-20">
-					<Collapse ghost defaultActiveKey={[1, 2]}>
+					<Collapse ghost defaultActiveKey={[1, 2, 3, 4]}>
 						<Panel
 							header={
 								<div className="flex flex-row items-center justify-start">
@@ -51,7 +51,7 @@ function NavigationBarAdministratorLayout() {
 									<p className="mx-2 text-xl">Manajemen</p>
 								</div>
 							}
-							key={1}
+							key="2"
 						>
 							<Link href="/dashboard/management/today">
 								<div
@@ -83,7 +83,7 @@ function NavigationBarAdministratorLayout() {
 									<p className="mx-2 text-xl">Pengguna</p>
 								</div>
 							}
-							key={2}
+							key="1"
 						>
 							<Link href="/dashboard/users/profile">
 								<div
@@ -125,7 +125,7 @@ function NavigationBarAdministratorLayout() {
 								className={`flex flex-row w-full items-center justify-start mt-8 mb-1 hover:bg-red-400 rounded-full px-2 hover:text-white`}
 							>
 								<LogoutOutlined className="text-lg" />
-								<p className="text-base ml-1">Keluar</p>
+								<p className="text-base ml-1">Logout</p>
 							</button>
 						</Popconfirm>
 					</Collapse>

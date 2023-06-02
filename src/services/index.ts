@@ -37,3 +37,5 @@ const serviceInstance = (
 
 export { serviceInstanceNoAuth, serviceInstance };
 export { Auth } from "./auth";
+export { Users } from "./users";
+export { Records } from "./records";

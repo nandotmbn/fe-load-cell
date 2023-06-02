@@ -18,7 +18,7 @@ function AdministratorLayout({ children }: IMainLayout) {
 	useEffect(() => {
 		setDomLoaded(true);
 		if (!cookiesHandler.getCookie("access_token")) {
-			router.replace("/admin/login");
+			router.replace("/");
 			message.info({content: "Anda harus login terlebih dahulu"})
 		}
 	}, []);

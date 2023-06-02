@@ -3,7 +3,7 @@ import MainLayout from "@/layouts/MainLayout";
 import AdministratorLayout from "@/layouts/AdministratorLayout";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import DashboardViews from "@/views/dashboard";
+import DashboardViews from "@/views/dashboard/management/today";
 
 export default function Home() {
 	const router = useRouter()

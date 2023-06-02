@@ -54,7 +54,7 @@ function LoginViews() {
 				<h2 className="text-center font-bold text-xl">Masuk</h2>
 				<div className="mt-4">
 					<div>
-						<label htmlFor="username">E-mail/Username</label>
+						<label htmlFor="username">Username</label>
 						<Input
 							id="username"
 							name="username"

@@ -1,27 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Collapse } from "antd";
+import { Collapse, Popconfirm } from "antd";
 import {
-	AimOutlined,
-	BankOutlined,
 	ContainerOutlined,
-	EyeOutlined,
-	FileDoneOutlined,
-	FileExclamationOutlined,
-	FileOutlined,
-	FireOutlined,
-	FlagOutlined,
-	GlobalOutlined,
 	HighlightOutlined,
 	InfoOutlined,
 	KeyOutlined,
 	LogoutOutlined,
 	ReconciliationOutlined,
-	UnorderedListOutlined,
 	UserOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/router";
+import cookiesHandler from "@/utils/storage/cookies";
 const { Panel } = Collapse;
 
 function NavigationBarAdministratorLayout() {
@@ -30,13 +21,18 @@ function NavigationBarAdministratorLayout() {
 	const [activePage, setActivePage] = useState("");
 
 	const defineActivePage = (panel: string, page: string) => {
-		if (panel == activePanel && page == activePage) return "bg-blue-400";
+		if (panel == activePanel && page == activePage) return "bg-blue-600 text-white";
 		return "";
 	};
 
 	const handleActivePage = () => {
 		setActivePanel(router.route.split("/")[2]);
 		setActivePage(router.route.split("/")[3]);
+	};
+
+	const handleLogout = () => {
+		cookiesHandler.deleteCookie("access_token");
+		router.replace("/");
 	};
 
 	useEffect(() => {
@@ -47,15 +43,15 @@ function NavigationBarAdministratorLayout() {
 		<div className="flex-4 h-full">
 			<div className="relative h-full flex-12">
 				<div className="overflow-y-scroll absolute inset-0 scrollbar scrollbar-rounded-xl scrollbar-w-1 scrollbar-thumb-gray-400 scrollbar-track-blue-100 pt-4 pb-20">
-					<Collapse ghost defaultActiveKey={[1, 2, 3, 4]}>
+					<Collapse ghost defaultActiveKey={[1, 2]}>
 						<Panel
 							header={
 								<div className="flex flex-row items-center justify-start">
-									<ReconciliationOutlined className="text-sm" />
-									<p className="mx-2 text-xs">Manajemen</p>
+									<ReconciliationOutlined className="text-lg" />
+									<p className="mx-2 text-xl">Manajemen</p>
 								</div>
 							}
-							key="2"
+							key={1}
 						>
 							<Link href="/dashboard/management/today">
 								<div
@@ -64,8 +60,8 @@ function NavigationBarAdministratorLayout() {
 										"today"
 									)}`}
 								>
-									<InfoOutlined className="text-sm" />
-									<p className="text-xs ml-1">Hari Ini</p>
+									<InfoOutlined className="text-lg" />
+									<p className="text-base ml-1">Hari Ini</p>
 								</div>
 							</Link>
 							<Link href="/dashboard/management/history">
@@ -75,19 +71,19 @@ function NavigationBarAdministratorLayout() {
 										"history"
 									)}`}
 								>
-									<HighlightOutlined className="text-sm" />
-									<p className="text-xs ml-1">Riwayat</p>
+									<HighlightOutlined className="text-lg" />
+									<p className="text-base ml-1">Riwayat</p>
 								</div>
 							</Link>
 						</Panel>
 						<Panel
 							header={
 								<div className="flex flex-row items-center justify-start">
-									<UserOutlined className="text-sm" />
-									<p className="mx-2 text-xs">Pengguna</p>
+									<UserOutlined className="text-lg" />
+									<p className="mx-2 text-xl">Pengguna</p>
 								</div>
 							}
-							key="1"
+							key={2}
 						>
 							<Link href="/dashboard/users/profile">
 								<div
@@ -96,8 +92,8 @@ function NavigationBarAdministratorLayout() {
 										"profile"
 									)}`}
 								>
-									<ContainerOutlined className="text-sm" />
-									<p className="text-xs ml-1">Profil</p>
+									<ContainerOutlined className="text-lg" />
+									<p className="text-base ml-1">Profil</p>
 								</div>
 							</Link>
 							<Link href="/dashboard/users/access">
@@ -107,17 +103,31 @@ function NavigationBarAdministratorLayout() {
 										"access"
 									)}`}
 								>
-									<KeyOutlined className="text-sm" />
-									<p className="text-xs ml-1">API Key</p>
+									<KeyOutlined className="text-lg" />
+									<p className="text-base ml-1">Akses</p>
 								</div>
 							</Link>
 						</Panel>
-						<button
-							className={`flex flex-row w-full items-center justify-start mt-8 mb-1 hover:bg-red-400 rounded-full px-2 hover:text-white`}
+						<Popconfirm
+							title="Keluar"
+							description="Apakah anda yakin untuk keluar?"
+							onConfirm={() => {
+								handleLogout();
+							}}
+							okText={
+								<p className="text-blue-500 hover:text-white border-blue-100">
+									Ya
+								</p>
+							}
+							cancelText="Tidak"
 						>
-							<LogoutOutlined className="text-sm" />
-							<p className="text-xs ml-1">Logout</p>
-						</button>
+							<button
+								className={`flex flex-row w-full items-center justify-start mt-8 mb-1 hover:bg-red-400 rounded-full px-2 hover:text-white`}
+							>
+								<LogoutOutlined className="text-lg" />
+								<p className="text-base ml-1">Keluar</p>
+							</button>
+						</Popconfirm>
 					</Collapse>
 				</div>
 			</div>

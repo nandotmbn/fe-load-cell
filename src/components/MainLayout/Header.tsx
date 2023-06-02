@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { DownOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Dropdown } from "antd";
+import cookiesHandler from "@/utils/storage/cookies";
 
 const items: MenuProps["items"] = [
 	{
@@ -28,6 +29,8 @@ const items: MenuProps["items"] = [
 function HeaderMainLayout() {
 	const [isMobileMenuOpened, setMobileMenuOpened] = useState(false);
 	const [isOnTop, setOnTop] = useState<Boolean>(false);
+	const [isLoggedIn, setLoggedIn] = useState<Boolean>(false);
+
 	const handleMobileMenuOpened = () => {
 		setMobileMenuOpened(!isMobileMenuOpened);
 	};
@@ -37,9 +40,15 @@ function HeaderMainLayout() {
 		setOnTop(false);
 	};
 
+	const checkLoggedIn = () => {
+		if (cookiesHandler.getCookie("access_token")) return setLoggedIn(true);
+		setLoggedIn(false);
+	};
+
 	useEffect(() => {
 		window.addEventListener("scroll", handleScroll);
-	});
+		checkLoggedIn();
+	}, []);
 
 	return (
 		<nav
@@ -95,16 +104,26 @@ function HeaderMainLayout() {
 							<button className="text-left text-xs">Tentang Pengembang</button>
 						</Link>
 					</li>
-					<li className="border-b-2 border-yellow-500">
-						<Link href="/auth/signin">
-							<button className="text-left text-xs">Login</button>
-						</Link>
-					</li>
-					<li className="border-b-2 border-yellow-500">
-						<Link href="/auth/signup">
-							<button className="text-left text-xs">Register</button>
-						</Link>
-					</li>
+					{!isLoggedIn ? (
+						<>
+							<li className="border-b-2 border-yellow-500">
+								<Link href="/auth/signin">
+									<button className="text-left text-xs">Login</button>
+								</Link>
+							</li>
+							<li className="border-b-2 border-yellow-500">
+								<Link href="/auth/signup">
+									<button className="text-left text-xs">Register</button>
+								</Link>
+							</li>
+						</>
+					) : (
+						<li className="border-b-2 border-yellow-500">
+							<Link href="/dashboard">
+								<button className="text-left text-xs">Dashboard</button>
+							</Link>
+						</li>
+					)}
 				</ul>
 			)}
 
@@ -122,18 +141,28 @@ function HeaderMainLayout() {
 					</li>
 				</ul>
 
-				<ul className="hidden flex flex-row gap-2 text-white md:gap-4 text-xs text-gray-900 items-end py-4 md:flex">
-					<li className="border-b-2 border-yellow-500">
-						<Link href="/auth/signin">
-							<button className="text-left">Login</button>
-						</Link>
-					</li>
-					<li className="border-b-2 border-yellow-500">
-						<Link href="/auth/signup">
-							<button className="text-left text-xs">Register</button>
-						</Link>
-					</li>
-				</ul>
+				{!isLoggedIn ? (
+					<ul className="hidden flex flex-row gap-2 text-white md:gap-4 text-xs text-gray-900 items-end py-4 md:flex">
+						<li className="border-b-2 border-yellow-500">
+							<Link href="/auth/signin">
+								<button className="text-left">Login</button>
+							</Link>
+						</li>
+						<li className="border-b-2 border-yellow-500">
+							<Link href="/auth/signup">
+								<button className="text-left text-xs">Register</button>
+							</Link>
+						</li>
+					</ul>
+				) : (
+					<ul className="hidden flex flex-row gap-2 text-white md:gap-4 text-xs text-gray-900 items-end py-4 md:flex">
+						<li className="border-b-2 border-yellow-500">
+							<Link href="/dashboard">
+								<button className="text-left text-xs">Dashboard</button>
+							</Link>
+						</li>
+					</ul>
+				)}
 			</div>
 		</nav>
 	);

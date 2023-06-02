@@ -1,9 +1,6 @@
 import Head from "next/head";
-import MainLayout from "@/layouts/MainLayout";
 import AdministratorLayout from "@/layouts/AdministratorLayout";
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import DashboardViews from "@/views/dashboard";
+import UserProfileViews from "@/views/dashboard/users/profile";
 
 export default function Home() {
 	return (
@@ -18,7 +15,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<AdministratorLayout>
-				<DashboardViews />
+				<UserProfileViews />
 			</AdministratorLayout>
 		</>
 	);

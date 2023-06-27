@@ -13,6 +13,7 @@ function HeaderAdministratorLayout() {
 
 	useEffect(() => {
 		Users.getUserProfiles({ isNotify: false }).then((res) => {
+			if(!res) return;
 			setData(res.data);
 		});
 	}, []);

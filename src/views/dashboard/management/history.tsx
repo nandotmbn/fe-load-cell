@@ -41,7 +41,7 @@ function DashboardHistoryViews() {
 							weight: datum.weight / 1000,
 						};
 					})
-					.reverse()
+					// .reverse()
 			);
 			setTotalWeight(totalWeight);
 		});
@@ -72,7 +72,7 @@ function DashboardHistoryViews() {
 			title: "Berat Ikan",
 			dataIndex: "weight",
 			key: "weight",
-			render: (e: any) => <p>{e} Kg</p>,
+			render: (e: any) => <p>{parseFloat(e).toFixed(2)} Kg</p>,
 		},
 		{
 			title: "Aksi",

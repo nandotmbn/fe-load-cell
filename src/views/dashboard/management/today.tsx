@@ -5,14 +5,17 @@ import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { Records, Users } from "@/services";
 import socketIOClient from "socket.io-client";
+import cookiesHandler from "@/utils/storage/cookies";
 
 function DashboardTodayViews() {
 	const [dataSource, setDataSource] = useState<any>([]);
 	const [totalWeight, setTotalWeight] = useState(0);
 
 	const socketIoInit = async () => {
-		const socket = socketIOClient("ws://10.252.128.176:8081");
+		const socket = socketIOClient("ws://localhost:8081");
+		if(!cookiesHandler.getCookie("access_token")) return;
 		const res = await Users.getUserProfiles({ isNotify: false }).then((res) => {
+			if(!res) return;
 			return res.data;
 		});
 		socket.on(res._id, async (data: any) => {
@@ -79,7 +82,7 @@ function DashboardTodayViews() {
 			title: "Berat Ikan",
 			dataIndex: "weight",
 			key: "weight",
-			render: (e: any) => <p>{e} Kg</p>,
+			render: (e: any) => <p>{parseFloat(e).toFixed(2)} Kg</p>,
 		},
 		{
 			title: "Aksi",

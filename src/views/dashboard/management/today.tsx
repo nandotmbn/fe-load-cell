@@ -79,10 +79,10 @@ function DashboardTodayViews() {
 			},
 		},
 		{
-			title: "Berat Ikan",
+			title: "Berat Ikan (Kg)",
 			dataIndex: "weight",
 			key: "weight",
-			render: (e: any) => <p>{parseFloat(e).toFixed(2)} Kg</p>,
+			render: (e: any) => <p>{parseFloat(e).toFixed(2)}</p>,
 		},
 		{
 			title: "Aksi",

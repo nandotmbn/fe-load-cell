@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 	},
 	viewer: {
 		width: "100%", //the pdf viewer will take up all of the width and height
-		height: window.innerHeight,
+		height: 720,
 	},
 });
 

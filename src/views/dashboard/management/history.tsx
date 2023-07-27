@@ -75,7 +75,7 @@ function DashboardHistoryViews() {
 						weight: datum.weight / 1000,
 					};
 				})
-				// .reverse()
+				.reverse()
 			);
 			setTotalWeight(totalWeight);
 		});
